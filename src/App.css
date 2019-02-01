@@ -79,7 +79,7 @@ section {
 }
 .slide-left-enter.slide-left-enter-active {
   transform: translate(0%);
-  transition: transform 2000ms ease;
+  transition: transform 800ms ease;
 }
 
 .slide-left-exit {
@@ -88,9 +88,8 @@ section {
 
 .slide-left-exit.slide-left-exit-active {
     transform: translate(-100%);
-    transition: transform 2000ms ease;
+    transition: transform 800ms ease;
 }
-
 
 /* slide right */
 
@@ -99,7 +98,7 @@ section {
 }
 .slide-right-enter.slide-right-enter-active {
   transform: translate(0%);
-  transition: transform 2000ms ease;
+  transition: transform 800ms ease;
 }
 
 .slide-right-exit {
@@ -108,7 +107,7 @@ section {
 
 .slide-right-exit.slide-right-exit-active {
     transform: translate(100%);
-    transition: transform 2000ms ease;
+    transition: transform 800ms ease;
 }
 
 /* Card */

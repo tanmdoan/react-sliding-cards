@@ -15,7 +15,7 @@ const Home = ({property, transitionClass}) => {
             <TransitionGroup className="card-container">
                 <CSSTransition
                     key={property._id}
-                    timeout={2000}
+                    timeout={800}
                     classNames={transitionClass}
                 >
                     <Card property={property} />

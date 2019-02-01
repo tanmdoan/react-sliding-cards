@@ -12,8 +12,7 @@ class App extends Component {
     this.state = {
       appearHome: true,
       property: data.properties[0],
-      transitionClass: null,
-      propertyButtonDirection: null
+      transitionClass: null
     }
   }
 
@@ -23,33 +22,32 @@ class App extends Component {
     })
   }
 
-  transitionClasses(direction) {
-    const { propertyButtonDirection } = this.state;
+//   transitionClasses(direction) {
+//     const { propertyButtonDirection } = this.state;
 
-    if (direction !== undefined) {
-      return {
-        enter: `slide-left-enter`,
-        enterActive: `slide-left-active-enter`,
-        exit: `slide-left-exit`,
-        exitActive: `slide-left-active-exit`,
-      }
-    } else {
-      return {
-        enter: `slide-${propertyButtonDirection}-enter`,
-        enterActive: `slide-${propertyButtonDirection}-active-enter`,
-        exit: `slide-${propertyButtonDirection}-exit`,
-        exitActive: `slide-${propertyButtonDirection}-active-exit`,
-      }
-    }
+//     if (direction !== undefined) {
+//       return {
+//         enter: `slide-left-enter`,
+//         enterActive: `slide-left-active-enter`,
+//         exit: `slide-left-exit`,
+//         exitActive: `slide-left-active-exit`,
+//       }
+//     } else {
+//       return {
+//         enter: `slide-${propertyButtonDirection}-enter`,
+//         enterActive: `slide-${propertyButtonDirection}-active-enter`,
+//         exit: `slide-${propertyButtonDirection}-exit`,
+//         exitActive: `slide-${propertyButtonDirection}-active-exit`,
+//       }
+//     }
 
-  }
+//   }
 
   nextProperty = () => {
     const newIndex = this.state.property.index+1;
     this.setState({
       property: data.properties[newIndex],
-      propertyButtonDirection: 'left',
-      transitionClasses: this.transitionClasses('left')
+      transitionClass: 'slide-left'
     })
   }
 
@@ -57,14 +55,12 @@ class App extends Component {
     const newIndex = this.state.property.index-1;
     this.setState({
       property: data.properties[newIndex],
-      propertyButtonDirection: 'right'
-      transitionClasses: this.transitionClasses('left')
+      transitionClass: 'slide-right'
     })
   }
 
   render() {
-    const {appearHome, property} = this.state;
-    const transitionClasses = this.transitionClasses();
+    const {appearHome, property, transitionClass} = this.state;
     return (
       <div className="App">
         <button onClick={() => this.toggleAppear()}>Appear: {`${appearHome}`}</button>
@@ -75,9 +71,9 @@ class App extends Component {
           in={appearHome}
           appear={true}
           timeout={1000}
-          classNames="fade"
+          classNames="slide-left"
         >
-          <Home property={property} transitionClass={transitionClass} propertyButtonDirection={propertyButtonDirection} />
+          <Home property={property} transitionClass={transitionClass} />
         </CSSTransition>
       </div>
     );
